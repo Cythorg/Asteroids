@@ -111,7 +111,7 @@ namespace Asteroids
         protected override void Update(GameTime gameTime)
         {
 
-            Console.WriteLine(GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.X +" "+ GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Y);
+            //Console.WriteLine(GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.X +" "+ GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Y);
 
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))

@@ -111,6 +111,10 @@
   <ItemGroup>
     <Content Include="Content\LGBT.png" />
     <Content Include="Content\bullet.png" />
+    <Content Include="Content\pew1.wav" />
+    <Content Include="Content\pew2.wav" />
+    <Content Include="Content\pew3.wav" />
+    <Content Include="Content\pew4.wav" />
     <Content Include="Content\ship.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

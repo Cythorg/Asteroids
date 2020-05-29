@@ -11,7 +11,7 @@ namespace Asteroids
     {
         public static float Sensitivity { get; set; } = 6.0f;
 
-        public static float Deadzone { get; set; } = 0.01f;
+        public static float Deadzone { get; set; } = 0.05f;
 
     }
 }
