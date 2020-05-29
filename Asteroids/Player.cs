@@ -18,6 +18,8 @@ namespace Asteroids
         public float Rotation { get; set; }
         public Viewport Viewport { get; set; }
 
+        int MaxSpeed = 10;
+
 
         public Player()
         {
@@ -26,6 +28,16 @@ namespace Asteroids
         public void Update()
         {
             Acceleration = new Vector2(0, 0);
+
+            if (Position.X > Viewport.Width || Position.Y > Viewport.Height || Position.X < 0 || Position.Y < 0)
+            {
+                Position = new Vector2(Viewport.Width/2, Viewport.Height / 2);
+                Velocity = new Vector2(0,0);
+                Rotation = 0;
+            }
+
+
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Y == ButtonState.Pressed)
             {
                 Position = new Vector2(Viewport.Width / 2, Viewport.Height / 2);
@@ -39,7 +51,16 @@ namespace Asteroids
                 //Position = Vector2.Add(Position, Velocity);
                 Rotation = (float)Math.Atan2((-GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Y), GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.X) + (float)Math.PI / 2;
             }
+
             Velocity = Vector2.Add(Velocity, Acceleration);
+
+            if (Math.Abs(Velocity.X) > MaxSpeed || Math.Abs(Velocity.Y) > MaxSpeed)
+            {
+                Velocity = MaxSpeed * Vector2.Normalize(Velocity);
+            }
+                
+
+
             Position = Vector2.Add(Position, Velocity);
         }
 
