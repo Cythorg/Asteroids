@@ -1,2 +1,2 @@
 # Asteroids
- Asteroids clone built in cSharp using the XNA framework
+ Asteroids clone built in C# using the XNA framework
