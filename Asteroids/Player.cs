@@ -49,7 +49,7 @@ namespace Asteroids
 
             if (GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Length() > Settings.Deadzone)
             {
-                Acceleration = new Vector2(GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.X, -GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Y);
+                Acceleration = new Vector2(GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.X, -GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Y)*0.5f;
                 //Velocity = Vector2.Add(Velocity, Acceleration);
                 //Position = new Vector2(Position.X + (Settings.Sensitivity) * GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.X, Position.Y - (Settings.Sensitivity) * GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Y);
                 //Position = Vector2.Add(Position, Velocity);

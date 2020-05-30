@@ -171,36 +171,14 @@ namespace Asteroids
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
-            //rotation = (float)Math.Atan2((-GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Y), GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.X) + (float)Math.PI / 2;
-
-            //spriteBatch.Draw(ship, position: position, rotation: rotation, origin: new Vector2(8,8));
-
-            //spriteBatch.Draw(projectile, position: position, rotation: rotation, origin: new Vector2(2,4));
-
-
+            spriteBatch.Draw(Content.Load<Texture2D>("cursor2"), position: new Vector2(Mouse.GetState().X, Mouse.GetState().Y), origin: new Vector2(8, 8));
 
             player.Draw(spriteBatch);
 
-
-            spriteBatch.Draw(Content.Load<Texture2D>("cursor2"), position: new Vector2(Mouse.GetState().X, Mouse.GetState().Y), origin: new Vector2(8,8));
-
-            //int[] projectileCheck = new int[projectiles.Count];
-
-            //List<int> projectileCheck = new List<int>();
-
-            //for (int i = 0; i < projectiles.Count; i++)
-            //{
-            //    projectiles[i].Draw(spriteBatch);
-            //    if (projectiles[i].Position.X > GraphicsDevice.Viewport.Width || projectiles[i].Position.Y > GraphicsDevice.Viewport.Height || projectiles[i].Position.X < 0 || projectiles[i].Position.Y < 0)
-            //    {
-
-            //    }
-            //}
-
-            for (int i = projectiles.Count-1; i > 0; i--)
+            //loops through all projectiles in a list and draws them; if the position of the projectile is not within the Viewport bounds the projectile is removed from the draw list
+            for (int i = 0; i < projectiles.Count; i++)
             {
                 projectiles[i].Draw(spriteBatch);
-
                 if (projectiles[i].Position.X > GraphicsDevice.Viewport.Width || projectiles[i].Position.Y > GraphicsDevice.Viewport.Height || projectiles[i].Position.X < 0 || projectiles[i].Position.Y < 0)
                 {
                     projectiles.RemoveAt(i);
@@ -208,33 +186,11 @@ namespace Asteroids
                 }
             }
 
-
             //if (player.Velocity.Length() > 10.01)
             //{
             //    projectiles.Add(new Projectile(player, Content.Load<Texture2D>("LGBT")));
             //    spriteBatch.Draw(Content.Load<Texture2D>("LGBT"), position: player.Position, rotation: player.Rotation, origin: new Vector2(8, 8));
             //}
-
-
-
-            //foreach (Projectile projectile in projectiles)
-            //{
-            //    projectile.Draw(spriteBatch);
-            //    if (projectile.Position.X > GraphicsDevice.Viewport.Width || projectile.Position.Y > GraphicsDevice.Viewport.Height || projectile.Position.X < 0 || projectile.Position.Y < 0)
-            //    {
-                    
-
-            //    }
-            //}
-
-
-
-
-
-
-
-
-
 
             spriteBatch.End();
 
