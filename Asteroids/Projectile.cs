@@ -37,9 +37,9 @@ namespace Asteroids
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Vector2 BulletVelocity = new Vector2((float)Math.Sin(Rotation),-(float)Math.Cos(Rotation));
+            Vector2 ProjectileVelocity = new Vector2((float)Math.Sin(Rotation),-(float)Math.Cos(Rotation))*6;
 
-            Position = Vector2.Add(Vector2.Add(Position, Velocity),BulletVelocity*6);
+            Position = Position + Velocity + ProjectileVelocity;
 
             spriteBatch.Draw(Texture, position: Position, rotation: Rotation, origin: new Vector2(2, 4));
 
