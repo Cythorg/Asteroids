@@ -11,7 +11,7 @@ namespace Asteroids
 {
     class Player
     {
-        public Texture2D ship;
+        public static Texture2D Texture;
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }
         public Vector2 Acceleration { get; set; }
@@ -92,7 +92,7 @@ namespace Asteroids
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(ship, position: Position, rotation: Rotation, origin: new Vector2(8, 8));
+            spriteBatch.Draw(Texture, position: Position, rotation: Rotation, origin: new Vector2(8, 8));
         }
     }
 }

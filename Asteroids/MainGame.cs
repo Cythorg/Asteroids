@@ -78,7 +78,8 @@ namespace Asteroids
 
             // TODO: use this.Content to load your game content here
 
-            player.ship = this.Content.Load<Texture2D>("ship");
+            Player.Texture = this.Content.Load<Texture2D>("ship");
+            Bullet.Texture = this.Content.Load<Texture2D>("bullet");
 
             soundEffects.Add(Content.Load<SoundEffect>("pew1"));
             soundEffects.Add(Content.Load<SoundEffect>("pew2"));
@@ -139,7 +140,8 @@ namespace Asteroids
             {
                 if (cooldown == 0)
                 {
-                    projectiles.Add(new Projectile(player, this.Content.Load<Texture2D>("bullet")));
+                    projectiles.Add(new Bullet(player, 6f));
+                    //projectiles.Add(new Projectile(player, this.Content.Load<Texture2D>("bullet")));
                     soundEffects[random.Next(4)].CreateInstance().Play();
                     cooldown = 10;
                 }
@@ -207,11 +209,11 @@ namespace Asteroids
             }
 
 
-            if (player.Velocity.Length() > 10.01)
-            {
-                projectiles.Add(new Projectile(player, Content.Load<Texture2D>("LGBT")));
-                spriteBatch.Draw(Content.Load<Texture2D>("LGBT"), position: player.Position, rotation: player.Rotation, origin: new Vector2(8, 8));
-            }
+            //if (player.Velocity.Length() > 10.01)
+            //{
+            //    projectiles.Add(new Projectile(player, Content.Load<Texture2D>("LGBT")));
+            //    spriteBatch.Draw(Content.Load<Texture2D>("LGBT"), position: player.Position, rotation: player.Rotation, origin: new Vector2(8, 8));
+            //}
 
 
 

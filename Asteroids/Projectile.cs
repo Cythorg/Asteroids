@@ -10,18 +10,20 @@ namespace Asteroids
 {
     class Projectile
     {
-        public Texture2D Texture;
-        public float Rotation;
-        public Vector2 Velocity;
-        public Vector2 Position;
+        public Texture2D Texture { get; set; }
+        public float Rotation { get; set; }
+        public Vector2 Accelleration { get; set; }
+        public Vector2 Velocity { get; set; }
+        public Vector2 Position { get; set; }
 
 
 
-        public Projectile(Player player, Texture2D texture)
+        public Projectile(float rotation, Vector2 accelleration, Vector2 velocity, Vector2 position, Texture2D texture)
         {
-            Rotation = player.Rotation;
-            Velocity = player.Velocity;
-            Position = player.Position;
+            Rotation = rotation;
+            Accelleration = accelleration;
+            Velocity = velocity;
+            Position = position;
             Texture = texture;
 
         }
@@ -35,11 +37,14 @@ namespace Asteroids
 
         //}
 
-        public void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
-            Vector2 ProjectileVelocity = new Vector2((float)Math.Sin(Rotation),-(float)Math.Cos(Rotation))*6;
+            //Vector2 ProjectileVelocity = new Vector2((float)Math.Sin(Rotation),-(float)Math.Cos(Rotation))*6;
 
-            Position = Position + Velocity + ProjectileVelocity;
+            Velocity = Velocity + Accelleration;
+            Position = Position + Velocity;
+            //Position = Position + Velocity + ProjectileVelocity;
+
 
             spriteBatch.Draw(Texture, position: Position, rotation: Rotation, origin: new Vector2(2, 4));
 
