@@ -15,7 +15,7 @@ namespace Asteroids
         public float BulletVelocity { get; set; }
 
 
-        public Bullet(Player player, float bulletVelocity) : base(player.Rotation, new Vector2(0, 0), player.Velocity, player.Position, Texture)
+        public Bullet(Player player, float bulletVelocity) : base(player.Rotation, Vector2.Zero, player.Velocity, player.Position, Texture)
         {
             Player = player;
             BulletVelocity = bulletVelocity;

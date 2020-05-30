@@ -41,6 +41,7 @@ namespace Asteroids
             if (GamePad.GetState(PlayerIndex.One).Buttons.Y == ButtonState.Pressed)
             {
                 Position = new Vector2(Viewport.Width / 2, Viewport.Height / 2);
+                Position = new Vector2(0, Viewport.Height / 2);
                 Velocity = new Vector2(0, 0);
             }
             //if (Math.Abs(GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Y) > Settings.Deadzone || Math.Abs(GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.X) > Settings.Deadzone)

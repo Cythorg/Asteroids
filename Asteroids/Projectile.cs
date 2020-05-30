@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace Asteroids
         public Vector2 Accelleration { get; set; }
         public Vector2 Velocity { get; set; }
         public Vector2 Position { get; set; }
+        public bool Dead { get; set; } = false;
 
 
 

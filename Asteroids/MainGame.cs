@@ -167,6 +167,7 @@ namespace Asteroids
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+
             GraphicsDevice.Clear(Color.Black);
             // TODO: Add your drawing code here
             spriteBatch.Begin();
@@ -176,16 +177,20 @@ namespace Asteroids
             player.Draw(spriteBatch);
 
             //loops through all projectiles in a list and draws them; if the position of the projectile is not within the Viewport bounds the projectile is removed from the draw list
+
+            List<int> projectilesCheck = new List<int>();
+            projectilesCheck.Clear();
+
             for (int i = 0; i < projectiles.Count; i++)
             {
                 projectiles[i].Draw(spriteBatch);
                 if (projectiles[i].Position.X > GraphicsDevice.Viewport.Width || projectiles[i].Position.Y > GraphicsDevice.Viewport.Height || projectiles[i].Position.X < 0 || projectiles[i].Position.Y < 0)
                 {
                     projectiles.RemoveAt(i);
+                    i--;
 
                 }
             }
-
             //if (player.Velocity.Length() > 10.01)
             //{
             //    projectiles.Add(new Projectile(player, Content.Load<Texture2D>("LGBT")));
