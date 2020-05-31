@@ -40,7 +40,7 @@ namespace Asteroids
                 Rotation = 0;
             }
 
-
+            Rotation = (float)Math.Atan2(-(Position.X - Mouse.GetState().X), Position.Y - Mouse.GetState().Y);
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.Y == ButtonState.Pressed)
             {
@@ -59,6 +59,25 @@ namespace Asteroids
                 //Position = new Vector2(Position.X + (Settings.Sensitivity) * GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.X, Position.Y - (Settings.Sensitivity) * GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Y);
                 //Position = Vector2.Add(Position, Velocity);
                 Rotation = (float)Math.Atan2((-GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Y), GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.X) + (float)Math.PI / 2;
+            }
+            else if (Keyboard.GetState().IsKeyDown(Keys.W) || Keyboard.GetState().IsKeyDown(Keys.S) || Keyboard.GetState().IsKeyDown(Keys.A) || Keyboard.GetState().IsKeyDown(Keys.D))
+            {
+                if (Keyboard.GetState().IsKeyDown(Keys.W))
+                {
+                    Acceleration += new Vector2(0, -0.5f);
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.S))
+                {
+                    Acceleration += new Vector2(0, 0.5f);
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.A))
+                {
+                    Acceleration += new Vector2(-0.5f, 0);
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.D))
+                {
+                    Acceleration += new Vector2(0.5f, 0);
+                }
             }
             if (GamePad.GetState(PlayerIndex.One).ThumbSticks.Right.Length() > Settings.Deadzone)
             {
@@ -100,7 +119,6 @@ namespace Asteroids
 
 
             if (Velocity.Length() > 10.01)
-            //if (true)
             {
 
                 //new Vector2(8+(float)Math.Cos((2/3)*Math.PI), 8 + (float)Math.Cos((2 / 3) * Math.PI));
@@ -108,9 +126,10 @@ namespace Asteroids
                 //Vector2 _240 = new Vector2(8, 8) + 3*new Vector2((float)Math.Cos((4*Math.PI/3) + (Math.PI / 2)), (float)Math.Sin((4*Math.PI/3) - (Math.PI / 2)));
                 //Vector2 _360 = new Vector2(8, 8) + 3*new Vector2((float)Math.Cos((6*Math.PI/3) + (Math.PI / 2)), (float)Math.Sin((6*Math.PI/3) - (Math.PI / 2)));
 
-                Vector2 _120 = Position + 3 * new Vector2((float)Math.Cos((2 * Math.PI / 3) + (Math.PI / 2)), (float)Math.Sin((2 * Math.PI / 3) - (Math.PI / 2)));
-                Vector2 _240 = Position + 3 * new Vector2((float)Math.Cos((4 * Math.PI / 3) + (Math.PI / 2)), (float)Math.Sin((4 * Math.PI / 3) - (Math.PI / 2)));
-                Vector2 _360 = Position + 3 * new Vector2((float)Math.Cos((6 * Math.PI / 3) + (Math.PI / 2)), (float)Math.Sin((6 * Math.PI / 3) - (Math.PI / 2)));
+                Vector2 _120 = Position + 4 * new Vector2((float)Math.Cos((2 * Math.PI / 3) + (Math.PI / 2)), (float)Math.Sin((2 * Math.PI / 3) - (Math.PI / 2)));
+                Vector2 _240 = Position + 4 * new Vector2((float)Math.Cos((4 * Math.PI / 3) + (Math.PI / 2)), (float)Math.Sin((4 * Math.PI / 3) - (Math.PI / 2)));
+                Vector2 _360 = Position + 4 * new Vector2((float)Math.Cos((6 * Math.PI / 3) + (Math.PI / 2)), (float)Math.Sin((6 * Math.PI / 3) - (Math.PI / 2)));
+
 
                 spriteBatch.Draw(RedShip, position: _240, rotation: Rotation, origin: new Vector2(8, 8));
                 spriteBatch.Draw(GreenShip, position: _360, rotation: Rotation, origin: new Vector2(8, 8));

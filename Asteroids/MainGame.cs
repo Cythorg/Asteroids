@@ -35,6 +35,8 @@ namespace Asteroids
             Graphics.PreferredBackBufferHeight = 1080;
             Graphics.PreferredBackBufferWidth = 1920;
 
+            //Graphics.IsFullScreen = true;
+
             soundEffects = new List<SoundEffect>();
         }
 
@@ -81,7 +83,7 @@ namespace Asteroids
             Player.Texture = this.Content.Load<Texture2D>("ship");
             Player.RedShip = this.Content.Load<Texture2D>("redship");
             Player.GreenShip = this.Content.Load<Texture2D>("greenship");
-            Player.BlueShip = this.Content.Load<Texture2D>("blueship");
+            Player.BlueShip = this.Content.Load<Texture2D>("blueship"); // very inefficient, probably a better way of doing this
 
             Bullet.Texture = this.Content.Load<Texture2D>("bullet");
 
@@ -135,14 +137,14 @@ namespace Asteroids
             {
                 cooldown -= 1;
             }
-            if (GamePad.GetState(PlayerIndex.One).Buttons.X == ButtonState.Pressed)
+            if (GamePad.GetState(PlayerIndex.One).Buttons.X == ButtonState.Pressed || Mouse.GetState().RightButton == ButtonState.Pressed)
             {
                 cooldown = 0;
             }
 
-            if (GamePad.GetState(PlayerIndex.One).Triggers.Right > 0)
+            if (GamePad.GetState(PlayerIndex.One).Triggers.Right > 0 || Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
-                if (cooldown == 0 && projectiles.Count < 100)
+                if (cooldown == 0 && projectiles.Count < 10000)
                 {
                     projectiles.Add(new Bullet(player, 6f));
                     //projectiles.Add(new Projectile(player, this.Content.Load<Texture2D>("bullet")));
