@@ -4,17 +4,23 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/blueship.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/bullet.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/cursor1.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/cursor2.png</File>
+    <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/greenship.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/LGBT.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/pew1.wav</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/pew2.wav</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/pew3.wav</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/pew4.wav</File>
+    <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/redship.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/ship.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

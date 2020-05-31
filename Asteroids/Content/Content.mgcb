@@ -13,6 +13,18 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin blueship.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:blueship.png
+
 #begin bullet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -37,18 +49,6 @@
 /processorParam:TextureFormat=Color
 /build:cursor1.png
 
-#begin cursor1.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:cursor1.png
-
 #begin cursor2.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -61,7 +61,7 @@
 /processorParam:TextureFormat=Color
 /build:cursor2.png
 
-#begin cursor2.png
+#begin greenship.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -71,7 +71,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:cursor2.png
+/build:greenship.png
 
 #begin LGBT.png
 /importer:TextureImporter
@@ -108,6 +108,18 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:pew4.wav
+
+#begin redship.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:redship.png
 
 #begin ship.png
 /importer:TextureImporter

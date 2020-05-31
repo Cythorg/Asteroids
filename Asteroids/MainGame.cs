@@ -79,6 +79,10 @@ namespace Asteroids
             // TODO: use this.Content to load your game content here
 
             Player.Texture = this.Content.Load<Texture2D>("ship");
+            Player.RedShip = this.Content.Load<Texture2D>("redship");
+            Player.GreenShip = this.Content.Load<Texture2D>("greenship");
+            Player.BlueShip = this.Content.Load<Texture2D>("blueship");
+
             Bullet.Texture = this.Content.Load<Texture2D>("bullet");
 
             soundEffects.Add(Content.Load<SoundEffect>("pew1"));
@@ -138,7 +142,7 @@ namespace Asteroids
 
             if (GamePad.GetState(PlayerIndex.One).Triggers.Right > 0)
             {
-                if (cooldown == 0)
+                if (cooldown == 0 && projectiles.Count < 100)
                 {
                     projectiles.Add(new Bullet(player, 6f));
                     //projectiles.Add(new Projectile(player, this.Content.Load<Texture2D>("bullet")));
@@ -149,14 +153,6 @@ namespace Asteroids
             }
 
             player.Update();
-
-            
-
-
-
-
-
-
 
             base.Update(gameTime);
         }

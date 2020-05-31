@@ -12,6 +12,10 @@ namespace Asteroids
     class Player
     {
         public static Texture2D Texture;
+
+        public static Texture2D RedShip;
+        public static Texture2D GreenShip;
+        public static Texture2D BlueShip;
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }
         public Vector2 Acceleration { get; set; }
@@ -93,7 +97,36 @@ namespace Asteroids
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Texture, position: Position, rotation: Rotation, origin: new Vector2(8, 8));
+
+
+            if (Velocity.Length() > 10.01)
+            //if (true)
+            {
+
+                //new Vector2(8+(float)Math.Cos((2/3)*Math.PI), 8 + (float)Math.Cos((2 / 3) * Math.PI));
+                //Vector2 _120 = new Vector2(8, 8) + 3*new Vector2((float)Math.Cos((2*Math.PI/3) + (Math.PI/2)), (float)Math.Sin((2*Math.PI/3) - (Math.PI / 2)));
+                //Vector2 _240 = new Vector2(8, 8) + 3*new Vector2((float)Math.Cos((4*Math.PI/3) + (Math.PI / 2)), (float)Math.Sin((4*Math.PI/3) - (Math.PI / 2)));
+                //Vector2 _360 = new Vector2(8, 8) + 3*new Vector2((float)Math.Cos((6*Math.PI/3) + (Math.PI / 2)), (float)Math.Sin((6*Math.PI/3) - (Math.PI / 2)));
+
+                Vector2 _120 = Position + 3 * new Vector2((float)Math.Cos((2 * Math.PI / 3) + (Math.PI / 2)), (float)Math.Sin((2 * Math.PI / 3) - (Math.PI / 2)));
+                Vector2 _240 = Position + 3 * new Vector2((float)Math.Cos((4 * Math.PI / 3) + (Math.PI / 2)), (float)Math.Sin((4 * Math.PI / 3) - (Math.PI / 2)));
+                Vector2 _360 = Position + 3 * new Vector2((float)Math.Cos((6 * Math.PI / 3) + (Math.PI / 2)), (float)Math.Sin((6 * Math.PI / 3) - (Math.PI / 2)));
+
+                spriteBatch.Draw(RedShip, position: _240, rotation: Rotation, origin: new Vector2(8, 8));
+                spriteBatch.Draw(GreenShip, position: _360, rotation: Rotation, origin: new Vector2(8, 8));
+                spriteBatch.Draw(BlueShip, position: _120, rotation: Rotation, origin: new Vector2(8, 8));
+
+                //spriteBatch.Draw(Texture, position: Position, rotation: Rotation, origin: new Vector2(8, 8));
+            }
+
+            else if (true)
+            {
+                spriteBatch.Draw(Texture, position: Position, rotation: Rotation, origin: new Vector2(8, 8));
+            }
+
+
+
+
         }
     }
 }

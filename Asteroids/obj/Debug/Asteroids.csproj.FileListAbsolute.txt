@@ -46,3 +46,6 @@ C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\Deskto
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\pew2.xnb
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\pew3.xnb
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\pew4.xnb
+C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\blueship.xnb
+C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\greenship.xnb
+C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\redship.xnb

@@ -110,12 +110,15 @@
     <None Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\blueship.png" />
+    <Content Include="Content\greenship.png" />
     <Content Include="Content\LGBT.png" />
     <Content Include="Content\bullet.png" />
     <Content Include="Content\pew1.wav" />
     <Content Include="Content\pew2.wav" />
     <Content Include="Content\pew3.wav" />
     <Content Include="Content\pew4.wav" />
+    <Content Include="Content\redship.png" />
     <Content Include="Content\ship.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
