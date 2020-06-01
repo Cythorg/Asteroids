@@ -23,10 +23,11 @@ namespace Asteroids
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            Vector2 ProjectileVelocity = new Vector2((float)Math.Sin(Rotation), -(float)Math.Cos(Rotation)) * BulletVelocity;
+            Vector2 BulletVelocity = new Vector2((float)Math.Sin(Rotation), -(float)Math.Cos(Rotation)) * this.BulletVelocity;
 
             Velocity = Velocity + Accelleration;
-            Position = Position + Velocity + ProjectileVelocity;
+            Position = Position + Velocity + BulletVelocity;
+            //Position = Position + Velocity + ProjectileVelocity;
 
             spriteBatch.Draw(Texture, position: Position, rotation: Rotation, origin: new Vector2(2, 4));
 

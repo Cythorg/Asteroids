@@ -4,6 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/asteroid16.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/blueship.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/bullet.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/cursor1.png</File>
@@ -18,6 +19,7 @@
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/ship.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

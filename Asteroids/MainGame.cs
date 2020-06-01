@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Asteroids.Content;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -87,6 +88,8 @@ namespace Asteroids
 
             Bullet.Texture = this.Content.Load<Texture2D>("bullet");
 
+            Asteroid.Texture = this.Content.Load<Texture2D>("asteroid16");
+
             soundEffects.Add(Content.Load<SoundEffect>("pew1"));
             soundEffects.Add(Content.Load<SoundEffect>("pew2"));
             soundEffects.Add(Content.Load<SoundEffect>("pew3"));
@@ -142,13 +145,19 @@ namespace Asteroids
                 cooldown = 0;
             }
 
+            if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed)
+            {
+                projectiles.Add(new Asteroid());
+            }
+
+
             if (GamePad.GetState(PlayerIndex.One).Triggers.Right > 0 || Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
                 if (cooldown == 0 && projectiles.Count < 10000)
                 {
                     projectiles.Add(new Bullet(player, 6f));
                     //projectiles.Add(new Projectile(player, this.Content.Load<Texture2D>("bullet")));
-                    soundEffects[random.Next(4)].CreateInstance().Play();
+                    //soundEffects[random.Next(4)].CreateInstance().Play();
                     cooldown = 10;
                 }
                 
@@ -170,7 +179,9 @@ namespace Asteroids
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
-            spriteBatch.Draw(Content.Load<Texture2D>("cursor2"), position: new Vector2(Mouse.GetState().X, Mouse.GetState().Y), origin: new Vector2(8, 8));
+            //spriteBatch.Draw(Content.Load<Texture2D>("cursor2"), position: new Vector2(Mouse.GetState().X, Mouse.GetState().Y) + player.Velocity*10, origin: new Vector2(8, 8));
+            spriteBatch.Draw(Content.Load<Texture2D>("cursor1"), position: player.Position + 300*(new Vector2((float)Math.Cos(player.Rotation-Math.PI/2), (float)Math.Sin(player.Rotation-Math.PI/2))), origin: new Vector2(8, 8));
+            spriteBatch.Draw(Content.Load<Texture2D>("cursor2"), position: player.Position + 300*(new Vector2((float)Math.Cos(player.Rotation - Math.PI / 2), (float)Math.Sin(player.Rotation - Math.PI / 2))) + player.Acceleration * 300, origin: new Vector2(8, 8));
 
             player.Draw(spriteBatch);
 
