@@ -33,12 +33,12 @@ namespace Asteroids
         {
             Acceleration = new Vector2(0, 0);
 
-            if (Position.X > Viewport.Width || Position.Y > Viewport.Height || Position.X < 0 || Position.Y < 0)
-            {
-                Position = new Vector2(Viewport.Width/2, Viewport.Height / 2);
-                Velocity = new Vector2(0,0);
-                Rotation = 0;
-            }
+            //if (Position.X > Viewport.Width || Position.Y > Viewport.Height || Position.X < 0 || Position.Y < 0)    //sets player back to centre of screen, redundant when camera implemented
+            //{
+            //    Position = new Vector2(Viewport.Width/2, Viewport.Height / 2);
+            //    Velocity = new Vector2(0,0);
+            //    Rotation = 0;
+            //}
 
             //Rotation = (float)Math.Atan2(-(Position.X - Mouse.GetState().X), Position.Y - Mouse.GetState().Y);
 
@@ -58,7 +58,7 @@ namespace Asteroids
                 //Velocity = Vector2.Add(Velocity, Acceleration);
                 //Position = new Vector2(Position.X + (Settings.Sensitivity) * GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.X, Position.Y - (Settings.Sensitivity) * GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Y);
                 //Position = Vector2.Add(Position, Velocity);
-                //Rotation = (float)Math.Atan2((-GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Y), GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.X) + (float)Math.PI / 2;
+                Rotation = (float)Math.Atan2((-GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Y), GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.X) + (float)Math.PI / 2;
             }
             else if (Keyboard.GetState().IsKeyDown(Keys.W) || Keyboard.GetState().IsKeyDown(Keys.S) || Keyboard.GetState().IsKeyDown(Keys.A) || Keyboard.GetState().IsKeyDown(Keys.D))
             {

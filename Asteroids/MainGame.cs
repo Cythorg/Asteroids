@@ -24,6 +24,11 @@ namespace Asteroids
 
         List<SoundEffect> soundEffects;
 
+        Camera camera;
+
+        Texture2D backgroundTexture;
+        Vector2 backgroundPosition;
+
 
         public MainGame()
         {
@@ -54,13 +59,13 @@ namespace Asteroids
             player = new Player
             {
                 Viewport = GraphicsDevice.Viewport,
-                Position = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2)
+                //Position = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2)
+                Position = new Vector2(0, 0)
             };
-            //player.Position = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2);
-            //projectile = new Projectile(new float(), new Vector2(), new Vector2(), this.Content.Load<Texture2D>("LGBT"));
-            //projectile = new Projectile(new Vector2(50,50), new Vector2(50,50), this.Content.Load<Texture2D>("bullet"));
+
             projectiles = new List<Projectile>();
 
+            camera = new Camera(GraphicsDevice.Viewport);
 
             IsMouseVisible = true;
             
@@ -95,12 +100,6 @@ namespace Asteroids
             soundEffects.Add(Content.Load<SoundEffect>("pew3"));
             soundEffects.Add(Content.Load<SoundEffect>("pew4"));
 
-
-
-
-            //projectile.Texture = this.Content.Load<Texture2D>("bullet");
-            //projectile.projectile = this.Content.Load<Texture2D>("projectile");
-            //ship = this.Content.Load<Texture2D>("LGBT");
         }
 
         /// <summary>
@@ -156,14 +155,14 @@ namespace Asteroids
                 if (cooldown == 0 && projectiles.Count < 10000)
                 {
                     projectiles.Add(new Bullet(player, 6f));
-                    //projectiles.Add(new Projectile(player, this.Content.Load<Texture2D>("bullet")));
-                    //soundEffects[random.Next(4)].CreateInstance().Play();
                     cooldown = 10;
                 }
                 
             }
 
             player.Update();
+
+            camera.Update(gameTime, player);
 
             base.Update(gameTime);
         }
@@ -177,13 +176,12 @@ namespace Asteroids
 
             GraphicsDevice.Clear(Color.Black);
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
-
-            //spriteBatch.Draw(Content.Load<Texture2D>("cursor2"), position: new Vector2(Mouse.GetState().X, Mouse.GetState().Y) + player.Velocity*10, origin: new Vector2(8, 8));
-            spriteBatch.Draw(Content.Load<Texture2D>("cursor1"), position: player.Position + 300*(new Vector2((float)Math.Cos(player.Rotation-Math.PI/2), (float)Math.Sin(player.Rotation-Math.PI/2))), origin: new Vector2(8, 8));
-            spriteBatch.Draw(Content.Load<Texture2D>("cursor2"), position: player.Position + 300*(new Vector2((float)Math.Cos(player.Rotation - Math.PI / 2), (float)Math.Sin(player.Rotation - Math.PI / 2))) + player.Acceleration * 300, origin: new Vector2(8, 8));
+            spriteBatch.Begin(transformMatrix: camera.Transform);
 
             player.Draw(spriteBatch);
+
+            camera.Update(gameTime, player);
+
 
             //loops through all projectiles in a list and draws them; if the position of the projectile is not within the Viewport bounds the projectile is removed from the draw list
 
@@ -193,19 +191,13 @@ namespace Asteroids
             for (int i = 0; i < projectiles.Count; i++)
             {
                 projectiles[i].Draw(spriteBatch);
-                if (projectiles[i].Position.X > GraphicsDevice.Viewport.Width || projectiles[i].Position.Y > GraphicsDevice.Viewport.Height || projectiles[i].Position.X < 0 || projectiles[i].Position.Y < 0)
-                {
-                    projectiles.RemoveAt(i);
-                    i--;
+                //if (projectiles[i].Position.X > GraphicsDevice.Viewport.Width || projectiles[i].Position.Y > GraphicsDevice.Viewport.Height || projectiles[i].Position.X < 0 || projectiles[i].Position.Y < 0)
+                //{
+                //    projectiles.RemoveAt(i);
+                //    i--;
 
-                }
+                //}
             }
-            //if (player.Velocity.Length() > 10.01)
-            //{
-            //    projectiles.Add(new Projectile(player, Content.Load<Texture2D>("LGBT")));
-            //    spriteBatch.Draw(Content.Load<Texture2D>("LGBT"), position: player.Position, rotation: player.Rotation, origin: new Vector2(8, 8));
-            //}
-
             spriteBatch.End();
 
             base.Draw(gameTime);

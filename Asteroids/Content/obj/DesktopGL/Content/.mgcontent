@@ -17,8 +17,10 @@
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/pew4.wav</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/redship.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/ship.png</File>
+    <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/space.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -43,7 +43,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Bullet.cs" />
-    <Compile Include="Content\Asteroid.cs" />
+    <Compile Include="Asteroid.cs" />
+    <Compile Include="Camera.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Projectile.cs" />
