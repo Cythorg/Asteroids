@@ -11,9 +11,9 @@ namespace Asteroids
 {
     class Projectile
     {
-        public Texture2D Texture { get; set; }
+        public Texture2D Texture { get; set; } //overridden by inherited classes, still included for redundancy's sake, e.g adding a new projectile with a random texture as a test in the MainGame class
         public float Rotation { get; set; }
-        public Vector2 Accelleration { get; set; }
+        public Vector2 Acceleration { get; set; }
         public Vector2 Velocity { get; set; }
         public Vector2 Position { get; set; }
         public bool Dead { get; set; } = false;
@@ -23,7 +23,7 @@ namespace Asteroids
         public Projectile(float rotation, Vector2 accelleration, Vector2 velocity, Vector2 position, Texture2D texture)
         {
             Rotation = rotation;
-            Accelleration = accelleration;
+            Acceleration = accelleration;
             Velocity = velocity;
             Position = position;
             Texture = texture;
@@ -43,7 +43,7 @@ namespace Asteroids
         {
             //Vector2 ProjectileVelocity = new Vector2((float)Math.Sin(Rotation),-(float)Math.Cos(Rotation))*6;
 
-            Velocity = Velocity + Accelleration;
+            Velocity = Velocity + Acceleration;
             Position = Position + Velocity;
             //Position = Position + Velocity + ProjectileVelocity;
 

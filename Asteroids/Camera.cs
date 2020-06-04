@@ -14,18 +14,14 @@ namespace Asteroids
 
         Viewport Viewport;
 
-        Vector2 Centre;
-
         public Camera(Viewport viewport)
         {
             Viewport = viewport;
         }
 
-        public void Update(GameTime gameTime, Player player)
+        public void Update(Player player)
         {
-            Centre = new Vector2(player.Position.X, player.Position.Y);
-
-            Transform = Matrix.CreateScale(new Vector3(1, 1, 0)) * Matrix.CreateTranslation(new Vector3(-Centre.X + Viewport.Width/2, -Centre.Y + Viewport.Height/2, 0));
+            Transform = Matrix.CreateScale(new Vector3(1, 1, 0)) * Matrix.CreateTranslation(new Vector3(-player.Position.X + Viewport.Width/2, -player.Position.Y + Viewport.Height/2, 0));
         }
     }
 }

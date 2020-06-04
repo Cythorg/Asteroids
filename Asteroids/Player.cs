@@ -15,14 +15,14 @@ namespace Asteroids
 
         public static Texture2D RedShip;
         public static Texture2D GreenShip;
-        public static Texture2D BlueShip;
-        public Vector2 Position { get; set; }
+        public static Texture2D BlueShip; //not a great way of doing textures I must admit, will try to figure something out
+        public Vector2 Position { get; set; } = new Vector2(0, 0); //sets player to 0,0 on initalisation
         public Vector2 Velocity { get; set; }
         public Vector2 Acceleration { get; set; }
         public float Rotation { get; set; }
         public Viewport Viewport { get; set; }
 
-        int MaxSpeed = 10;
+        int MaxSpeed = 10; //needs refactoring
 
 
         public Player()
@@ -33,24 +33,13 @@ namespace Asteroids
         {
             Acceleration = new Vector2(0, 0);
 
-            //if (Position.X > Viewport.Width || Position.Y > Viewport.Height || Position.X < 0 || Position.Y < 0)    //sets player back to centre of screen, redundant when camera implemented
-            //{
-            //    Position = new Vector2(Viewport.Width/2, Viewport.Height / 2);
-            //    Velocity = new Vector2(0,0);
-            //    Rotation = 0;
-            //}
+            //Rotation = (float)Math.Atan2(-(Position.X - Mouse.GetState().X), Position.Y - Mouse.GetState().Y);  //sets player rotation to be towards the cursor, will uncomment when inputs are worked on
 
-            //Rotation = (float)Math.Atan2(-(Position.X - Mouse.GetState().X), Position.Y - Mouse.GetState().Y);
-
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Y == ButtonState.Pressed)
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Y == ButtonState.Pressed) //resets player to 0,0 and removes any residual speed
             {
-                Position = new Vector2(Viewport.Width / 2, Viewport.Height / 2);
-                Position = new Vector2(Viewport.Width / 2, Viewport.Height / 2);
+                Position = new Vector2(0, 0);
                 Velocity = new Vector2(0, 0);
             }
-            //if (Math.Abs(GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Y) > Settings.Deadzone || Math.Abs(GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.X) > Settings.Deadzone)
-            //need to normalize the deadzone setting; it is currently a square around the thumbstick and should be a circle
-
 
             if (GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Length() > Settings.Deadzone)
             {
@@ -60,25 +49,7 @@ namespace Asteroids
                 //Position = Vector2.Add(Position, Velocity);
                 Rotation = (float)Math.Atan2((-GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Y), GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.X) + (float)Math.PI / 2;
             }
-            else if (Keyboard.GetState().IsKeyDown(Keys.W) || Keyboard.GetState().IsKeyDown(Keys.S) || Keyboard.GetState().IsKeyDown(Keys.A) || Keyboard.GetState().IsKeyDown(Keys.D))
-            {
-                if (Keyboard.GetState().IsKeyDown(Keys.W))
-                {
-                    Acceleration += new Vector2(0, -0.5f);
-                }
-                if (Keyboard.GetState().IsKeyDown(Keys.S))
-                {
-                    Acceleration += new Vector2(0, 0.5f);
-                }
-                if (Keyboard.GetState().IsKeyDown(Keys.A))
-                {
-                    Acceleration += new Vector2(-0.5f, 0);
-                }
-                if (Keyboard.GetState().IsKeyDown(Keys.D))
-                {
-                    Acceleration += new Vector2(0.5f, 0);
-                }
-            }
+
             if (GamePad.GetState(PlayerIndex.One).ThumbSticks.Right.Length() > Settings.Deadzone)
             {
                 Rotation = (float)Math.Atan2((-GamePad.GetState(PlayerIndex.One).ThumbSticks.Right.Y), GamePad.GetState(PlayerIndex.One).ThumbSticks.Right.X) + (float)Math.PI / 2;
@@ -120,22 +91,13 @@ namespace Asteroids
 
             if (Velocity.Length() > 10.01)
             {
+                Vector2 _120 = Position + Velocity.Length()/10 * new Vector2((float)Math.Cos((2 * Math.PI / 3) + (Math.PI / 2)), (float)Math.Sin((2 * Math.PI / 3) - (Math.PI / 2)));
+                Vector2 _360 = Position + Velocity.Length()/10 * new Vector2((float)Math.Cos((6 * Math.PI / 3) + (Math.PI / 2)), (float)Math.Sin((6 * Math.PI / 3) - (Math.PI / 2)));
+                Vector2 _240 = Position + Velocity.Length()/10 * new Vector2((float)Math.Cos((4 * Math.PI / 3) + (Math.PI / 2)), (float)Math.Sin((4 * Math.PI / 3) - (Math.PI / 2)));
 
-                //new Vector2(8+(float)Math.Cos((2/3)*Math.PI), 8 + (float)Math.Cos((2 / 3) * Math.PI));
-                //Vector2 _120 = new Vector2(8, 8) + 3*new Vector2((float)Math.Cos((2*Math.PI/3) + (Math.PI/2)), (float)Math.Sin((2*Math.PI/3) - (Math.PI / 2)));
-                //Vector2 _240 = new Vector2(8, 8) + 3*new Vector2((float)Math.Cos((4*Math.PI/3) + (Math.PI / 2)), (float)Math.Sin((4*Math.PI/3) - (Math.PI / 2)));
-                //Vector2 _360 = new Vector2(8, 8) + 3*new Vector2((float)Math.Cos((6*Math.PI/3) + (Math.PI / 2)), (float)Math.Sin((6*Math.PI/3) - (Math.PI / 2)));
-
-                Vector2 _120 = Position + 4 * new Vector2((float)Math.Cos((2 * Math.PI / 3) + (Math.PI / 2)), (float)Math.Sin((2 * Math.PI / 3) - (Math.PI / 2)));
-                Vector2 _240 = Position + 4 * new Vector2((float)Math.Cos((4 * Math.PI / 3) + (Math.PI / 2)), (float)Math.Sin((4 * Math.PI / 3) - (Math.PI / 2)));
-                Vector2 _360 = Position + 4 * new Vector2((float)Math.Cos((6 * Math.PI / 3) + (Math.PI / 2)), (float)Math.Sin((6 * Math.PI / 3) - (Math.PI / 2)));
-
-
-                spriteBatch.Draw(RedShip, position: _240, rotation: Rotation, origin: new Vector2(8, 8));
-                spriteBatch.Draw(GreenShip, position: _360, rotation: Rotation, origin: new Vector2(8, 8));
-                spriteBatch.Draw(BlueShip, position: _120, rotation: Rotation, origin: new Vector2(8, 8));
-
-                //spriteBatch.Draw(Texture, position: Position, rotation: Rotation, origin: new Vector2(8, 8));
+                spriteBatch.Draw(RedShip, position: _240, rotation: Rotation, origin: new Vector2(8, 8));                     //      v G
+                spriteBatch.Draw(GreenShip, position: _360, rotation: Rotation, origin: new Vector2(8, 8));                   //      R ^ B         RGB is the order of subpixels from left to right, hence the order _360 is also 0 which is left
+                spriteBatch.Draw(BlueShip, position: _120, rotation: Rotation, origin: new Vector2(8, 8));                    //          ^
             }
 
             else if (true)

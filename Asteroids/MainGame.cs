@@ -18,16 +18,13 @@ namespace Asteroids
         GraphicsDeviceManager Graphics;
         SpriteBatch spriteBatch;
 
-
+        Camera camera;                      //methinks these should be capitalised ?
         Player player;
         List<Projectile> projectiles;
 
-        List<SoundEffect> soundEffects;
+        List<SoundEffect> soundEffects; //need ot rework all sounds, however still proves useful to keep this here to remind me
 
-        Camera camera;
 
-        Texture2D backgroundTexture;
-        Vector2 backgroundPosition;
 
 
         public MainGame()
@@ -37,13 +34,13 @@ namespace Asteroids
             //this.Window.ClientSizeChanged += OnWindowSizeChanged;
             this.Content.RootDirectory = "Content";
 
-            Graphics = new GraphicsDeviceManager(this);
-            Graphics.PreferredBackBufferHeight = 1080;
-            Graphics.PreferredBackBufferWidth = 1920;
+            Graphics = new GraphicsDeviceManager(this);                //need to do better here cmon dude
+            Graphics.PreferredBackBufferHeight = 1080;                 //
+            Graphics.PreferredBackBufferWidth = 1920;                  //
 
             //Graphics.IsFullScreen = true;
 
-            soundEffects = new List<SoundEffect>();
+            soundEffects = new List<SoundEffect>(); //not really relevant, is it!?
         }
 
         /// <summary>
@@ -56,12 +53,7 @@ namespace Asteroids
         {
             // TODO: Add your initialization logic here
 
-            player = new Player
-            {
-                Viewport = GraphicsDevice.Viewport,
-                //Position = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2)
-                Position = new Vector2(0, 0)
-            };
+            player = new Player();
 
             projectiles = new List<Projectile>();
 
@@ -121,7 +113,7 @@ namespace Asteroids
         /// 
 
         Random random = new Random();
-        int cooldown = 0;
+        int cooldown = 0;               //should probably be moved to the player class
         protected override void Update(GameTime gameTime)
         {
 
@@ -133,24 +125,23 @@ namespace Asteroids
 
             // TODO: Add your update logic here
 
-            //if (GamePad.GetState(PlayerIndex.One).DPad.Right == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Right))
-            //    position = new Vector2(position.X + 6, position.Y);
-            if (!(cooldown == 0))
+            if (!(cooldown == 0)) //cooldown countdown, should be moved to player class methinks
             {
                 cooldown -= 1;
             }
-            if (GamePad.GetState(PlayerIndex.One).Buttons.X == ButtonState.Pressed || Mouse.GetState().RightButton == ButtonState.Pressed)
-            {
-                cooldown = 0;
-            }
 
-            if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed)
+            if (GamePad.GetState(PlayerIndex.One).Buttons.X == ButtonState.Pressed || Mouse.GetState().RightButton == ButtonState.Pressed) //rapid fire bby! possible power up in future, for now just fun to use ;)
+            {                                                                                                                              //
+                cooldown = 0;                                                                                                              //
+            }                                                                                                                              //
+
+            if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed) //SHOOT! , Again could and probabyly should be moved to player class although projectiles list could proove problematic, maybe make static?
             {
                 projectiles.Add(new Asteroid());
             }
 
 
-            if (GamePad.GetState(PlayerIndex.One).Triggers.Right > 0 || Mouse.GetState().LeftButton == ButtonState.Pressed)
+            if (GamePad.GetState(PlayerIndex.One).Triggers.Right > 0 || Mouse.GetState().LeftButton == ButtonState.Pressed)     //AGAIN WITH THE MOVING STUFF TO THE PLAYER CLASS CMON TOM U SUCK MAN
             {
                 if (cooldown == 0 && projectiles.Count < 10000)
                 {
@@ -160,9 +151,8 @@ namespace Asteroids
                 
             }
 
-            player.Update();
-
-            camera.Update(gameTime, player);
+            player.Update(); //this stuff is clean though ;))
+            camera.Update(player); //still not sure why gameTime is passed through although will keep this comment for sake of if I ever need gametime in the camera class as an argument lol
 
             base.Update(gameTime);
         }
@@ -174,29 +164,21 @@ namespace Asteroids
         protected override void Draw(GameTime gameTime)
         {
 
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.Black); //sets background to be black
             // TODO: Add your drawing code here
-            spriteBatch.Begin(transformMatrix: camera.Transform);
+            spriteBatch.Begin(transformMatrix: camera.Transform); //transforms everything in the spritebatch by the matrix defined in the camera class, gives the illusion of movement!
 
             player.Draw(spriteBatch);
 
-            camera.Update(gameTime, player);
-
-
-            //loops through all projectiles in a list and draws them; if the position of the projectile is not within the Viewport bounds the projectile is removed from the draw list
-
-            List<int> projectilesCheck = new List<int>();
-            projectilesCheck.Clear();
-
+            //loops through all projectiles in a list and draws them; if the projectiles is "Dead" then the projectile is removed from the draw list         Projectiles currently includes: bullets, asteroids
             for (int i = 0; i < projectiles.Count; i++)
             {
                 projectiles[i].Draw(spriteBatch);
-                //if (projectiles[i].Position.X > GraphicsDevice.Viewport.Width || projectiles[i].Position.Y > GraphicsDevice.Viewport.Height || projectiles[i].Position.X < 0 || projectiles[i].Position.Y < 0)
-                //{
-                //    projectiles.RemoveAt(i);
-                //    i--;
-
-                //}
+                if (projectiles[i].Dead == true)
+                {
+                    projectiles.RemoveAt(i);
+                    i--;
+                }
             }
             spriteBatch.End();
 
