@@ -22,6 +22,8 @@ namespace Asteroids
         Player player;
         List<Projectile> projectiles;
 
+        SpriteFont spriteFont;
+
         List<SoundEffect> soundEffects; //need ot rework all sounds, however still proves useful to keep this here to remind me
 
 
@@ -87,6 +89,8 @@ namespace Asteroids
 
             Asteroid.Texture = this.Content.Load<Texture2D>("asteroid16");
 
+            spriteFont = this.Content.Load<SpriteFont>("Arial");
+
             soundEffects.Add(Content.Load<SoundEffect>("pew1"));
             soundEffects.Add(Content.Load<SoundEffect>("pew2"));
             soundEffects.Add(Content.Load<SoundEffect>("pew3"));
@@ -135,9 +139,9 @@ namespace Asteroids
                 cooldown = 0;                                                                                                              //
             }                                                                                                                              //
 
-            if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed) //SHOOT! , Again could and probabyly should be moved to player class although projectiles list could proove problematic, maybe make static?
+            if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed) //SHOOT! , Again could and probabyly should be moved to player class although projectiles list could prove problematic, maybe make static?
             {
-                projectiles.Add(new Asteroid());
+                projectiles.Add(new Asteroid(player));
             }
 
 
@@ -166,18 +170,19 @@ namespace Asteroids
 
             GraphicsDevice.Clear(Color.Black); //sets background to be black
             // TODO: Add your drawing code here
-            spriteBatch.Begin(transformMatrix: camera.Transform); //transforms everything in the spritebatch by the matrix defined in the camera class, gives the illusion of movement!
+            spriteBatch.Begin(sortMode: SpriteSortMode.Immediate ,blendState: BlendState.Additive ,transformMatrix: camera.Transform); //transforms everything in the spritebatch by the matrix defined in the camera class, gives the illusion of movement!
 
             player.Draw(spriteBatch);
+
+            spriteBatch.DrawString(spriteFont: spriteFont, text: $"{Math.Round(player.Position.X)}, {Math.Round(player.Position.Y)}", position: new Vector2(player.Position.X + 10, player.Position.Y +10), color: Color.White);
 
             //loops through all projectiles in a list and draws them; if the projectiles is "Dead" then the projectile is removed from the draw list         Projectiles currently includes: bullets, asteroids
             for (int i = 0; i < projectiles.Count; i++)
             {
                 projectiles[i].Draw(spriteBatch);
-                if (projectiles[i].Dead == true)
-                {
-                    projectiles.RemoveAt(i);
-                    i--;
+                if (projectiles[i].Dead)
+                { 
+                    projectiles.RemoveAt(i--); 
                 }
             }
             spriteBatch.End();

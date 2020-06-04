@@ -23,9 +23,9 @@ namespace Asteroids
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if (Vector2.Distance(Position, Player.Position) > 1102) //diagonal distance from centre to 1920x1080
+            if (Vector2.Distance(Position, Player.Position) > 1102) //diagonal distance from centre to 1920x1080 border will change later
             {
-                Dead = true;
+                Dead = true; 
             }
 
             Vector2 BulletVelocity = new Vector2((float)Math.Sin(Rotation), -(float)Math.Cos(Rotation)) * this.BulletVelocity;

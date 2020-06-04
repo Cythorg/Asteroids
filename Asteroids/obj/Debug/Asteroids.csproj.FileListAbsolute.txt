@@ -51,3 +51,4 @@ C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\Deskto
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\redship.xnb
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\asteroid16.xnb
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\space.xnb
+C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Arial.xnb

@@ -9,6 +9,7 @@
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/bullet.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/cursor1.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/cursor2.png</File>
+    <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/File.spritefont</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/greenship.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/LGBT.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/pew1.wav</File>
@@ -25,6 +26,7 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+    <File>Arial.spritefont</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

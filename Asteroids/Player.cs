@@ -72,7 +72,7 @@ namespace Asteroids
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.B == ButtonState.Pressed && Vector2.Normalize(Velocity).Length() * MaxSpeed > 9.999)
             {
-                MaxSpeed = 100;
+                MaxSpeed = Int32.MaxValue;
             }
 
             if (Velocity.Length() > MaxSpeed)

@@ -17,8 +17,10 @@ namespace Asteroids.Content
         int Size = Random.Next(1,1); // random number between 1 and exclusive upper bound (to be decided)
         float RotationSpeed = (float)Random.NextDouble()/10; // random 7dp number between 0 and 0.1
 
-        public Asteroid() : base((float)Random.NextDouble()*2*(float)Math.PI, new Vector2(0, 0), new Vector2(Random.Next(-5, 5)+(float)Random.NextDouble(), Random.Next(-5, 5)+(float)Random.NextDouble()), new Vector2(Random.Next(1920), Random.Next(1080)), Texture) //asteroid: size between 1-10?  base: rotation[between 0 and 2PI], acceleration[vector2], velocity[vector2], position[vector2], texture
+        public Asteroid(Player player) : base((float)Random.NextDouble()*2*(float)Math.PI, new Vector2(0, 0), new Vector2(Random.Next(-5, 5)+(float)Random.NextDouble(), Random.Next(-5, 5)+(float)Random.NextDouble()), new Vector2(Random.Next(1920), Random.Next(1080)), Texture) //asteroid: size between 1-10?  base: rotation[between 0 and 2PI], acceleration[vector2], velocity[vector2], position[vector2], texture
         {
+
+
             //need to sort out base class arguments
             //may need to pass in player argument for relative positioning of asteroids in base class argument 'position'
             //need to assign texture randomly from an array of possible textures (3 different textures for each size of asteroid?)
