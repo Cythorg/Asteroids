@@ -63,7 +63,7 @@ namespace Asteroids
 
             IsMouseVisible = true;
             
-            Mouse.SetCursor(MouseCursor.FromTexture2D(Content.Load<Texture2D>("cursor1"), 8, 8));
+            Mouse.SetCursor(MouseCursor.FromTexture2D(Content.Load<Texture2D>("Assets/Textures/cursor1"), 8, 8));
 
 
             base.Initialize();
@@ -80,21 +80,21 @@ namespace Asteroids
 
             // TODO: use this.Content to load your game content here
 
-            Player.Texture = this.Content.Load<Texture2D>("ship");
-            Player.RedShip = this.Content.Load<Texture2D>("redship");
-            Player.GreenShip = this.Content.Load<Texture2D>("greenship");
-            Player.BlueShip = this.Content.Load<Texture2D>("blueship"); // very inefficient, probably a better way of doing this
+            Player.Texture = this.Content.Load<Texture2D>("Assets/Textures/ship");
+            Player.RedShip = this.Content.Load<Texture2D>("Assets/Textures/redship");
+            Player.GreenShip = this.Content.Load<Texture2D>("Assets/Textures/greenship");
+            Player.BlueShip = this.Content.Load<Texture2D>("Assets/Textures/blueship"); // 'very' inefficient, probably a better way of doing this
 
-            Bullet.Texture = this.Content.Load<Texture2D>("bullet");
+            Bullet.Texture = this.Content.Load<Texture2D>("Assets/Textures/bullet");
 
-            Asteroid.Texture = this.Content.Load<Texture2D>("asteroid16");
+            Asteroid.Texture = this.Content.Load<Texture2D>("Assets/Textures/asteroid16");
 
-            spriteFont = this.Content.Load<SpriteFont>("Arial");
+            spriteFont = this.Content.Load<SpriteFont>("Assets/File");
 
-            soundEffects.Add(Content.Load<SoundEffect>("pew1"));
-            soundEffects.Add(Content.Load<SoundEffect>("pew2"));
-            soundEffects.Add(Content.Load<SoundEffect>("pew3"));
-            soundEffects.Add(Content.Load<SoundEffect>("pew4"));
+            soundEffects.Add(Content.Load<SoundEffect>("Assets/Sounds/pew1"));
+            soundEffects.Add(Content.Load<SoundEffect>("Assets/Sounds/pew2"));
+            soundEffects.Add(Content.Load<SoundEffect>("Assets/Sounds/pew3"));
+            soundEffects.Add(Content.Load<SoundEffect>("Assets/Sounds/pew4"));
 
         }
 
@@ -174,7 +174,7 @@ namespace Asteroids
 
             player.Draw(spriteBatch);
 
-            spriteBatch.DrawString(spriteFont: spriteFont, text: $"{Math.Round(player.Position.X)}, {Math.Round(player.Position.Y)}", position: new Vector2(player.Position.X + 10, player.Position.Y +10), color: Color.White);
+            spriteBatch.DrawString(spriteFont: spriteFont, text: $"{projectiles.Count}", position: new Vector2(player.Position.X + 10, player.Position.Y +10), color: Color.White);
 
             //loops through all projectiles in a list and draws them; if the projectiles is "Dead" then the projectile is removed from the draw list         Projectiles currently includes: bullets, asteroids
             for (int i = 0; i < projectiles.Count; i++)

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/bullet.png</SourceFile>
+  <SourceFile>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/Assets/Textures/bullet.png</SourceFile>
   <SourceTime>2020-05-27T21:44:35.07781+01:00</SourceTime>
-  <DestFile>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/bin/DesktopGL/Content/bullet.xnb</DestFile>
-  <DestTime>2020-05-28T08:33:37.2434529+01:00</DestTime>
+  <DestFile>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/bin/DesktopGL/Content/Assets/Textures/bullet.xnb</DestFile>
+  <DestTime>2020-06-05T14:19:10.1475548+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T16:35:54+00:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -20,10 +20,10 @@ namespace Asteroids
 
 
 
-        public Projectile(float rotation, Vector2 accelleration, Vector2 velocity, Vector2 position, Texture2D texture)
+        public Projectile(float rotation, Vector2 acceleration, Vector2 velocity, Vector2 position, Texture2D texture)
         {
             Rotation = rotation;
-            Acceleration = accelleration;
+            Acceleration = acceleration;
             Velocity = velocity;
             Position = position;
             Texture = texture;

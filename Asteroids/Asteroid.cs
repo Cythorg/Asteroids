@@ -12,12 +12,21 @@ namespace Asteroids.Content
     {
         public static new Texture2D Texture { get; set; }
 
+        public static List<Texture2D> Textures { get; set; }
+
         static Random Random = new Random();
 
-        int Size = Random.Next(1,1); // random number between 1 and exclusive upper bound (to be decided)
+        int Size = Random.Next(1); // random number between 0 and exclusive upper bound (to be decided) sizes: 8x8, 16x16, 32x32, 64x64(?), 128x128(??)
         float RotationSpeed = (float)Random.NextDouble()/10; // random 7dp number between 0 and 0.1
 
-        public Asteroid(Player player) : base((float)Random.NextDouble()*2*(float)Math.PI, new Vector2(0, 0), new Vector2(Random.Next(-5, 5)+(float)Random.NextDouble(), Random.Next(-5, 5)+(float)Random.NextDouble()), new Vector2(Random.Next(1920), Random.Next(1080)), Texture) //asteroid: size between 1-10?  base: rotation[between 0 and 2PI], acceleration[vector2], velocity[vector2], position[vector2], texture
+        public Asteroid(Player player) : base
+            (
+            rotation      : (float)Random.NextDouble()*2*(float)Math.PI, 
+            acceleration : new Vector2(0, 0), 
+            velocity      : new Vector2(Random.Next(-5, 5)+(float)Random.NextDouble(), Random.Next(-5, 5)+(float)Random.NextDouble()), 
+            position      : new Vector2(Random.Next(1920), Random.Next(1080)), 
+            texture       : Texture
+            ) //asteroid: size between 1-10?  base: rotation[between 0 and 2PI], acceleration[vector2], velocity[vector2], position[vector2], texture
         {
 
 
