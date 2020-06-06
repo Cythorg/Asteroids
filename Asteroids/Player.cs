@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Asteroids.Content;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -79,6 +80,7 @@ namespace Asteroids
             {
                 Velocity = MaxSpeed * Vector2.Normalize(Velocity);
             }
+
                 
 
 

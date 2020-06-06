@@ -8,27 +8,29 @@ using System.Threading.Tasks;
 
 namespace Asteroids.Content
 {
+
     class Asteroid : Projectile
     {
-        public static new Texture2D Texture { get; set; }
+        public static List<Texture2D> Textures;
+        //public static new Texture2D Texture { get; } = Textures[Random.Next(Textures.Count)]; //possibly redundant
 
-        public static List<Texture2D> Textures { get; set; }
 
         static Random Random = new Random();
 
-        int Size = Random.Next(1); // random number between 0 and exclusive upper bound (to be decided) sizes: 8x8, 16x16, 32x32, 64x64(?), 128x128(??)
-        float RotationSpeed = (float)Random.NextDouble()/10; // random 7dp number between 0 and 0.1
+        int Size = default; // random number between 0 and exclusive upper bound (to be decided) sizes: 8x8, 16x16, 32x32, 64x64(?), 128x128(??)
 
-        public Asteroid(Player player) : base
+        float RotationSpeed = (float)Random.NextDouble()/10; // random 7dp number between 0 and 0.1 & only generated once per instance of asteroid class
+
+        public Asteroid(int size, Player player) : base
             (
-            rotation      : (float)Random.NextDouble()*2*(float)Math.PI, 
+            rotation     : (float)Random.NextDouble()*(float)Math.PI*2, //initial rotation betweem 0 and 2PI in radians, not exactly 'necessary' so to speak
             acceleration : new Vector2(0, 0), 
-            velocity      : new Vector2(Random.Next(-5, 5)+(float)Random.NextDouble(), Random.Next(-5, 5)+(float)Random.NextDouble()), 
-            position      : new Vector2(Random.Next(1920), Random.Next(1080)), 
-            texture       : Texture
+            velocity     : new Vector2(Random.Next(-5, 5)+(float)Random.NextDouble(), Random.Next(-5, 5)+(float)Random.NextDouble()), 
+            position     : new Vector2(Random.Next(1920), Random.Next(1080)), 
+            texture      : Textures[Random.Next(Textures.Count)]
             ) //asteroid: size between 1-10?  base: rotation[between 0 and 2PI], acceleration[vector2], velocity[vector2], position[vector2], texture
         {
-
+            base.Texture = Textures[Random.Next(Textures.Count)];
 
             //need to sort out base class arguments
             //may need to pass in player argument for relative positioning of asteroids in base class argument 'position'
@@ -50,7 +52,7 @@ namespace Asteroids.Content
             Velocity = Velocity + Acceleration;
             Position = Position + Velocity;
 
-            spriteBatch.Draw(Texture, position: Position, rotation: Rotation, origin: new Vector2(8, 8));
+            spriteBatch.Draw(Texture, position: Position, rotation: Rotation, origin: new Vector2(Texture.Width/2, Texture.Height/2));
 
         }
     }

@@ -40,6 +40,7 @@ namespace Asteroids
             Graphics.PreferredBackBufferHeight = 1080;                 //
             Graphics.PreferredBackBufferWidth = 1920;                  //
 
+
             //Graphics.IsFullScreen = true;
 
             soundEffects = new List<SoundEffect>(); //not really relevant, is it!?
@@ -87,7 +88,24 @@ namespace Asteroids
 
             Bullet.Texture = this.Content.Load<Texture2D>("Assets/Textures/bullet");
 
-            Asteroid.Texture = this.Content.Load<Texture2D>("Assets/Textures/asteroid16");
+            //Asteroid.Texture = this.Content.Load<Texture2D>("Assets/Textures/asteroid16");
+
+            Asteroid.Textures = new List<Texture2D>();
+
+            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x1"));
+            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x2"));
+            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x3"));
+            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x4"));
+                            
+            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x1"));
+            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x2"));
+            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x3"));
+            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x4"));
+                            
+            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x1"));
+            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x2"));
+            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x3"));
+            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x4"));
 
             spriteFont = this.Content.Load<SpriteFont>("Assets/File");
 
@@ -141,7 +159,7 @@ namespace Asteroids
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed) //SHOOT! , Again could and probabyly should be moved to player class although projectiles list could prove problematic, maybe make static?
             {
-                projectiles.Add(new Asteroid(player));
+                projectiles.Add(new Asteroid(0, player));
             }
 
 
@@ -174,7 +192,7 @@ namespace Asteroids
 
             player.Draw(spriteBatch);
 
-            spriteBatch.DrawString(spriteFont: spriteFont, text: $"{projectiles.Count}", position: new Vector2(player.Position.X + 10, player.Position.Y +10), color: Color.White);
+            //spriteBatch.DrawString(spriteFont: spriteFont, text: $"{projectiles.Count}", position: new Vector2(player.Position.X + 10, player.Position.Y +10), color: Color.White);
 
             //loops through all projectiles in a list and draws them; if the projectiles is "Dead" then the projectile is removed from the draw list         Projectiles currently includes: bullets, asteroids
             for (int i = 0; i < projectiles.Count; i++)
