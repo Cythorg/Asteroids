@@ -23,21 +23,13 @@
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/Assets/Textures/Asteroid/asteroid8x4.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/Assets/Textures/asteroid16.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/Assets/Textures/asteroid162.png</File>
-    <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/Assets/Textures/blueship.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/Assets/Textures/bullet.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/Assets/Textures/cursor1.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/Assets/Textures/cursor2.png</File>
-    <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/Assets/Textures/greenship.png</File>
-    <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/Assets/Textures/LGBT.png</File>
-    <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/Assets/Textures/redship.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/Assets/Textures/ship.png</File>
     <File>C:/Users/Tom/Desktop/projects/coding/cSharp/repos/Asteroids/Asteroids/Content/Assets/Textures/space.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

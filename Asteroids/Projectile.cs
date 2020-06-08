@@ -11,7 +11,7 @@ namespace Asteroids
 {
     class Projectile
     {
-        public Texture2D Texture { get; set; } //overridden by inherited classes, still included for redundancy's sake, e.g adding a new projectile with a random texture as a test in the MainGame class
+        public Texture2D Texture { get; set; } //overridden by inherited classes, still included for redundancy's sake, e.g adding a new projectile with a random texture as a test in the MainGame class or randomising textures froma given list
         public float Rotation { get; set; }
         public Vector2 Acceleration { get; set; }
         public Vector2 Velocity { get; set; }

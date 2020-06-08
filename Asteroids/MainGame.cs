@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.Remoting.Messaging;
 
 namespace Asteroids
 {
@@ -25,6 +26,8 @@ namespace Asteroids
         SpriteFont spriteFont;
 
         List<SoundEffect> soundEffects; //need ot rework all sounds, however still proves useful to keep this here to remind me
+
+        Random Random = new Random();
 
 
 
@@ -82,30 +85,55 @@ namespace Asteroids
             // TODO: use this.Content to load your game content here
 
             Player.Texture = this.Content.Load<Texture2D>("Assets/Textures/ship");
-            Player.RedShip = this.Content.Load<Texture2D>("Assets/Textures/redship");
-            Player.GreenShip = this.Content.Load<Texture2D>("Assets/Textures/greenship");
-            Player.BlueShip = this.Content.Load<Texture2D>("Assets/Textures/blueship"); // 'very' inefficient, probably a better way of doing this
 
             Bullet.Texture = this.Content.Load<Texture2D>("Assets/Textures/bullet");
 
-            //Asteroid.Texture = this.Content.Load<Texture2D>("Assets/Textures/asteroid16");
+            Asteroid.Textures = new Dictionary<int, List<Texture2D>>
+            {
+                {0, new List<Texture2D>()
+                    {
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x1"),
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x2"),
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x3"),
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x4")
+                    } 
+                },
 
-            Asteroid.Textures = new List<Texture2D>();
+                {1, new List<Texture2D>()
+                    {
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x1"),
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x2"),
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x3"),
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x4")
+                    } 
+                },
 
-            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x1"));
-            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x2"));
-            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x3"));
-            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x4"));
-                            
-            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x1"));
-            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x2"));
-            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x3"));
-            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x4"));
-                            
-            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x1"));
-            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x2"));
-            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x3"));
-            Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x4"));
+                {2, new List<Texture2D>()
+                    {
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x1"),
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x2"),
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x3"),
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x4")
+                    } 
+                }
+            };
+
+            //Asteroid.Textures = new List<Texture2D>();
+
+            //Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x1"));
+            //Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x2"));
+            //Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x3"));
+            //Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x4"));
+
+            //Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x1"));
+            //Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x2"));
+            //Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x3"));
+            //Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x4"));
+
+            //Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x1"));
+            //Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x2"));
+            //Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x3"));
+            //Asteroid.Textures.Add(this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x4"));
 
             spriteFont = this.Content.Load<SpriteFont>("Assets/File");
 
@@ -159,7 +187,7 @@ namespace Asteroids
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed) //SHOOT! , Again could and probabyly should be moved to player class although projectiles list could prove problematic, maybe make static?
             {
-                projectiles.Add(new Asteroid(0, player));
+                projectiles.Add(new Asteroid(Random.Next(3), player));
             }
 
 

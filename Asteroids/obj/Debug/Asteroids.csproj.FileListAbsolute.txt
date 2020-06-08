@@ -39,13 +39,9 @@ C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\obj\Debug\
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\projectile.xnb
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\asteroid16.xnb
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\asteroid162.xnb
-C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\blueship.xnb
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\bullet.xnb
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\cursor1.xnb
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\cursor2.xnb
-C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\greenship.xnb
-C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\LGBT.xnb
-C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\redship.xnb
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\ship.xnb
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\space.xnb
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Sounds\pew1.xnb

@@ -97,9 +97,9 @@ namespace Asteroids
                 Vector2 _360 = Position + Velocity.Length()/10 * new Vector2((float)Math.Cos((6 * Math.PI / 3) + (Math.PI / 2)), (float)Math.Sin((6 * Math.PI / 3) - (Math.PI / 2)));
                 Vector2 _240 = Position + Velocity.Length()/10 * new Vector2((float)Math.Cos((4 * Math.PI / 3) + (Math.PI / 2)), (float)Math.Sin((4 * Math.PI / 3) - (Math.PI / 2)));
 
-                spriteBatch.Draw(RedShip, position: _240, rotation: Rotation, origin: new Vector2(8, 8));                     //      v G
-                spriteBatch.Draw(GreenShip, position: _360, rotation: Rotation, origin: new Vector2(8, 8));                   //      R ^ B         RGB is the order of subpixels from left to right, hence the order _360 is also 0 which is left
-                spriteBatch.Draw(BlueShip, position: _120, rotation: Rotation, origin: new Vector2(8, 8));                    //          ^
+                spriteBatch.Draw(Texture, position: _240, rotation: Rotation, origin: new Vector2(8, 8), color: new Color(255, 0, 0));                    //      v G
+                spriteBatch.Draw(Texture, position: _360, rotation: Rotation, origin: new Vector2(8, 8), color: new Color(0, 255, 0));                    //      R ^ B         RGB is the order of subpixels from left to right, hence the order _360 is also 0 which is left
+                spriteBatch.Draw(Texture, position: _120, rotation: Rotation, origin: new Vector2(8, 8), color: new Color(0, 0, 255));                    //          ^
             }
 
             else if (true)
