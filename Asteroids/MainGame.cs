@@ -88,33 +88,51 @@ namespace Asteroids
 
             Bullet.Texture = this.Content.Load<Texture2D>("Assets/Textures/bullet");
 
-            Asteroid.Textures = new Dictionary<int, List<Texture2D>>
+            Asteroid.Textures = new Dictionary<int, List<Texture2D>> //size, texture list of given size
             {
-                {0, new List<Texture2D>()
+                {0, new List<Texture2D>() //8x8 4 variations
                     {
                         this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x1"),
                         this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x2"),
                         this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x3"),
                         this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid8x4")
-                    } 
+                    }
                 },
 
-                {1, new List<Texture2D>()
+                {1, new List<Texture2D>() //16x16 4 variations
                     {
                         this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x1"),
                         this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x2"),
                         this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x3"),
                         this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid16x4")
-                    } 
+                    }
                 },
 
-                {2, new List<Texture2D>()
+                {2, new List<Texture2D>() //32x32 4 variations
                     {
                         this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x1"),
                         this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x2"),
                         this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x3"),
                         this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid32x4")
-                    } 
+                    }
+                },
+                {3, new List<Texture2D>() //64x64 4 variations
+                    {
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid64x1"),
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid64x2"),
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid64x3"),
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid64x4")
+                    }
+
+                },
+                {4, new List<Texture2D>() //128x128 4 variations
+                    {
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid128x1"),
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid128x2"),
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid128x3"),
+                        this.Content.Load<Texture2D>("Assets/Textures/Asteroid/asteroid128x4")
+                    }
+
                 }
             };
 
@@ -185,10 +203,12 @@ namespace Asteroids
                 cooldown = 0;                                                                                                              //
             }                                                                                                                              //
 
-            if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed) //SHOOT! , Again could and probabyly should be moved to player class although projectiles list could prove problematic, maybe make static?
+            if (projectiles.Count < 10000) //SHOOT! , Again could and probabyly should be moved to player class although projectiles list could prove problematic, maybe make static?
             {
-                projectiles.Add(new Asteroid(Random.Next(3), player));
+                projectiles.Add(new Asteroid(Random.Next(5), player));
             }
+
+
 
 
             if (GamePad.GetState(PlayerIndex.One).Triggers.Right > 0 || Mouse.GetState().LeftButton == ButtonState.Pressed)     //AGAIN WITH THE MOVING STUFF TO THE PLAYER CLASS CMON TOM U SUCK MAN

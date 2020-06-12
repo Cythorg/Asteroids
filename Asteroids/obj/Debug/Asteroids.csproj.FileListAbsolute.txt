@@ -61,3 +61,11 @@ C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\Deskto
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\Asteroid\asteroid8x2.xnb
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\Asteroid\asteroid8x3.xnb
 C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\Asteroid\asteroid8x4.xnb
+C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\Asteroid\asteroid64x1.xnb
+C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\Asteroid\asteroid64x2.xnb
+C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\Asteroid\asteroid64x3.xnb
+C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\Asteroid\asteroid64x4.xnb
+C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\Asteroid\asteroid128x1.xnb
+C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\Asteroid\asteroid128x2.xnb
+C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\Asteroid\asteroid128x3.xnb
+C:\Users\Tom\Desktop\projects\coding\cSharp\repos\Asteroids\Asteroids\bin\DesktopGL\AnyCPU\Debug\Content\Assets\Textures\Asteroid\asteroid128x4.xnb

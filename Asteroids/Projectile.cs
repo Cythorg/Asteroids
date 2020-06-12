@@ -48,7 +48,7 @@ namespace Asteroids
             //Position = Position + Velocity + ProjectileVelocity;
 
 
-            spriteBatch.Draw(Texture, position: Position, rotation: Rotation, origin: new Vector2(2, 4));
+            spriteBatch.Draw(Texture, position: Position, rotation: Rotation, origin: new Vector2(Texture.Width / 2, Texture.Height / 2));
 
         }
     }

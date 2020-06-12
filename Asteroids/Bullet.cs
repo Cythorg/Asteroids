@@ -33,7 +33,7 @@ namespace Asteroids
             Velocity = Velocity + Acceleration;
             Position = Position + Velocity + BulletVelocity;
 
-            spriteBatch.Draw(Texture, position: Position, rotation: Rotation, origin: new Vector2(2, 4));
+            spriteBatch.Draw(Texture, position: Position, rotation: Rotation, origin: new Vector2(Texture.Width / 2, Texture.Height / 2));
 
         }
     }
